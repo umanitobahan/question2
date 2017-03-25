@@ -7,6 +7,7 @@
 
 static Boolean result = false;
 
+
 FILE *loadFile(char *name){
         FILE *file = NULL;
         assert(name != NULL);
@@ -37,7 +38,6 @@ void getWord(char *word){
                 word[i] = tolower(word[i]);
                 i++;
         }
-        printf("-------%s ----\n", word);
 }
 
 void closeWord(char *fword, char *word, char *best, FILE *file){
@@ -48,7 +48,6 @@ void closeWord(char *fword, char *word, char *best, FILE *file){
                 fword = fgets(fword, 100, file);
                 if(fword != NULL){
                         steps = levenshtein(word, fword);
-                        printf("%d\n", steps);
                         if(steps < 5){
                                 result = insert(fword);
                                 assert(result == true);
@@ -56,12 +55,10 @@ void closeWord(char *fword, char *word, char *best, FILE *file){
                         }
                         close = steps;
                         best = strcpy(best, fword);
-                        printf("%s\n", best);
                 }
                 fword = fgets(fword, 100, file);
                 while(fword != NULL){
                         steps = levenshtein(word, fword);
-                        printf("%d\n", steps);
                         if(steps < 5){
                                 result = insert(fword);
                                 assert(result == true);
@@ -70,7 +67,6 @@ void closeWord(char *fword, char *word, char *best, FILE *file){
                         if(steps < close){
                                 close = steps;
                                 best = strcpy(best, fword);
-                                printf("%s\n", best);
                         }
                         fword = fgets(fword, 100, file);
                 }
@@ -79,4 +75,38 @@ void closeWord(char *fword, char *word, char *best, FILE *file){
 }
 
 
+void moreWords(){
+	int number = 1;
+	int nodes = size();
+        char ch = getchar();
+        if(ch == 'y'){
+                printf("\n");
+                printf("%s\n", firstItem());
+                for(int i=1; i<10; i++){
+                        printf("%s\n",nextItem());
+                }
+		number += 10;
+		while(number < nodes){
+			ch = getchar();
+			if(ch == 'y'){
+			for(int i=0; i<10; i++){
+				printf("%s\n",nextItem());
+			}		
+			number += 10;
+			}
+			else if(ch == 'n'){
+				number = nodes +1;
+			} 
+			else{
+				printf("Please enter 'y' or 'n' : ");
+			}
+	
+        }
+	}
+	else if(ch == 'n'){
+	}
+	else{
+		printf("Please enter 'y' or 'n' : ");
+	}
+}
 
