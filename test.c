@@ -1,3 +1,16 @@
+//-----------------------------------------
+//NAME: Liu Han
+//STUDENT NUMBER: 7694437
+//COURSE: COMP 2160, SECTION: A01
+//INSTRUCTOR: Franklin Bristow
+//ASSIGNMENT: assignment 3, question 2
+//
+// REMARKS: Find the most closed word in the dictionary, and list words that less than 5 steps
+//
+//-----------------------------------------
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,19 +46,11 @@ int main(int argc, char *argv[]){
 
 }
 	moreWords();
-
+	
+	nodes = size();
+	
 	fclose(file); 
 	return EXIT_SUCCESS;
 }
 
-/*void moreWords(){
-	char ch = getchar();
-        if(ch == 'y'){
-                printf("\n");
-                printf("%s\n", firstItem());
-                for(int i=1; i<10; i++){
-                        printf("%s\n",nextItem());
-                }
-        }
-}*/
 
