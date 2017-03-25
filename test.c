@@ -46,8 +46,8 @@ int main(int argc, char *argv[]){
 
 }
 	moreWords();
+	cleanTable();
 	
-	nodes = size();
 	
 	fclose(file); 
 	return EXIT_SUCCESS;

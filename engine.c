@@ -129,6 +129,17 @@ char * nextItem()
     return item;
 }
 
+void cleanTable(){
+	Node *curr = NULL;
+	curr = top;
+	while(curr != NULL){
+		top = top->next;
+		free(curr->string);
+		free(curr);
+		curr = top;
+	}
+}
+
 
 unsigned int
 levenshtein(const char *a, const char *b) {

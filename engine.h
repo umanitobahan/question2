@@ -13,4 +13,5 @@
 	void getWord(char *word);
 	void closeWord(char *fword, char *word,char *best,  FILE *file);
 	void moreWords();
+	void cleanTable();
 #endif
